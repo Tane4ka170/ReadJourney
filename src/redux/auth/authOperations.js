@@ -1,44 +1,44 @@
-import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
+import { createAsyncThunk } from '@reduxjs/toolkit';
 
 axios.defaults.baseURL = 'https://readjourney.b.goit.study/api';
 
-const setAuthHeader = t => {
-  axios.defaults.headers.common.Authorization = `Bearer ${t}`;
+const setAuthHeader = token => {
+  axios.defaults.headers.common.Authorization = `Bearer ${token}`;
 };
 
 const clearAuthHeader = () => {
   axios.defaults.headers.common.Authorization = '';
 };
 
-export const signUp = createAsyncThunk(
-  'auth/register',
+export const register = createAsyncThunk(
+  '/users/signup',
   async (credentials, { rejectWithValue }) => {
     try {
-      const { data } = await axios.post('/users/signup', credentials);
-      setAuthHeader(data.token);
-      return data;
+      const res = await axios.post('/users/signup', credentials);
+      setAuthHeader(res.data.token);
+      return res.data;
     } catch (error) {
       return rejectWithValue(error.message);
     }
   }
 );
 
-export const signIn = createAsyncThunk(
-  'auth/login',
+export const logIn = createAsyncThunk(
+  '/users/signin',
   async (credentials, { rejectWithValue }) => {
     try {
-      const { data } = await axios.post('/users/signin', credentials);
-      setAuthHeader(data.token);
-      return data;
+      const res = await axios.post('/users/signin', credentials);
+      setAuthHeader(res.data.token);
+      return res.data;
     } catch (error) {
       return rejectWithValue(error.message);
     }
   }
 );
 
-export const signOut = createAsyncThunk(
-  'auth/logout',
+export const logOut = createAsyncThunk(
+  '/users/signout',
   async (_, { rejectWithValue }) => {
     try {
       await axios.post('/users/signout');
@@ -49,19 +49,22 @@ export const signOut = createAsyncThunk(
   }
 );
 
-export const updateUser = createAsyncThunk(
-  'auth/refresh',
-  async (_, { rejectWithValue, getState }) => {
+export const refreshUser = createAsyncThunk(
+  '/users/current',
+  async (_, { getState, rejectWithValue }) => {
     const state = getState();
-    const storedToken = state.auth.token;
+    const persistedToken = state.auth.token;
 
-    if (storedToken === null) {
-      return rejectWithValue('Unable to fetch user');
+    if (persistedToken === null) {
+      return rejectWithValue(
+        'It appears that retrieving user data is not possible at the moment'
+      );
     }
+
     try {
-      setAuthHeader(storedToken);
-      const { data } = await axios.get('/users/current');
-      return data;
+      setAuthHeader(persistedToken);
+      const res = await axios.get('/users/current');
+      return res.data;
     } catch (error) {
       return rejectWithValue(error.message);
     }

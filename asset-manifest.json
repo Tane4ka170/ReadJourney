@@ -1,13 +1,15 @@
 {
   "files": {
     "main.css": "/ReadJourney/static/css/main.7acaea2f.css",
-    "main.js": "/ReadJourney/static/js/main.a6a94245.js",
+    "main.js": "/ReadJourney/static/js/main.855dbd28.js",
+    "static/media/Gilroy-Medium.woff": "/ReadJourney/static/media/Gilroy-Medium.2bc7f5d7ea77ee1bddb3.woff",
+    "static/media/Gilroy-Bold.woff": "/ReadJourney/static/media/Gilroy-Bold.5fb38b9fa452b5814397.woff",
     "index.html": "/ReadJourney/index.html",
     "main.7acaea2f.css.map": "/ReadJourney/static/css/main.7acaea2f.css.map",
-    "main.a6a94245.js.map": "/ReadJourney/static/js/main.a6a94245.js.map"
+    "main.855dbd28.js.map": "/ReadJourney/static/js/main.855dbd28.js.map"
   },
   "entrypoints": [
     "static/css/main.7acaea2f.css",
-    "static/js/main.a6a94245.js"
+    "static/js/main.855dbd28.js"
   ]
 }

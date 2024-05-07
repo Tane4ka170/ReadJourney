@@ -9,7 +9,7 @@ import {
   readingDell,
   readingStart,
   readingStop,
-} from './operations';
+} from './booksOperations';
 
 const bookSlice = createSlice({
   name: 'book',

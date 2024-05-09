@@ -1,9 +1,22 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { NavLink } from 'react-router-dom';
 import { fetchBooks } from 'redux/books/booksOperations';
 import { selectBookData } from 'redux/books/booksSelectors';
 import sprite from '../../img/sprite.svg';
+import {
+  ArrowIcon,
+  BookAuthor,
+  BookImage,
+  BookListItem,
+  BookTitle,
+  BooksList,
+  HomeLink,
+  HomeText,
+  RecommendedBooksContainer,
+  RecommendedBooksHeading,
+} from './RecommendedBooks.styled';
+import CustomPortalModal from 'components/CustomPortalModal/CustomPortalModal';
+import BookDetails from 'components/BookDetails/BookDetails';
 
 const RecommendedBooks = () => {
   const [modalOpen, setModalOpen] = useState(false);
@@ -22,36 +35,36 @@ const RecommendedBooks = () => {
 
   return (
     <div>
-      <div>
-        <h4>Recommended books</h4>
-        <ul>
+      <RecommendedBooksContainer>
+        <RecommendedBooksHeading>Recommended books</RecommendedBooksHeading>
+        <BooksList>
           {booksData?.slice(3, 6).map(book => (
-            <li key={book._id}>
-              <img
+            <BookListItem key={book._id}>
+              <BookImage
                 src={book.imageUrl}
                 alt="book title"
                 onClick={() => openModalHandler(book)}
               />
-              <h4>{book.title}</h4>
-              <p>{book.author}</p>
-            </li>
+              <BookTitle>{book.title}</BookTitle>
+              <BookAuthor>{book.author}</BookAuthor>
+            </BookListItem>
           ))}
-        </ul>
-        <NavLink to="/recommended">
-          <p>Home </p>
-          <svg>
+        </BooksList>
+        <HomeLink to="/recommended">
+          <HomeText>Home </HomeText>
+          <ArrowIcon>
             <use href={`${sprite}#icon-arrow-right`} />
-          </svg>
-        </NavLink>
-      </div>
+          </ArrowIcon>
+        </HomeLink>
+      </RecommendedBooksContainer>
 
-      {/* <PortalModal active={modalOpen} setActive={setModalOpen}>
-        <DetailedBookInfo
+      <CustomPortalModal active={modalOpen} setActive={setModalOpen}>
+        <BookDetails
           bookInfo={bookInfo}
           closeModal={() => setModalOpen()}
           buttonLabel="Add to library"
         />
-      </PortalModal> */}
+      </CustomPortalModal>
     </div>
   );
 };

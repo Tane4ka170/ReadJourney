@@ -1,6 +1,6 @@
 import Btn from 'components/Btn/Btn';
 import DashboardWrapper from 'components/DashboardWrapper/DashboardWrapper';
-import { ErrorMessage, Field, Form, Formik } from 'formik';
+import { Form, Formik } from 'formik';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
@@ -15,6 +15,9 @@ import {
   Label,
   TitleError,
 } from './Dashboard.styled';
+import CustomPortalModal from 'components/CustomPortalModal/CustomPortalModal';
+import RecommendedBooks from 'components/RecommendedBooks/RecommendedBooks';
+import SuccessfulBookAdditionModal from 'components/SuccessfulBookAdditionModal/SuccessfulBookAdditionModal';
 
 const initialValues = {
   title: '',
@@ -117,10 +120,10 @@ export default function Dashboard() {
         </Formik>
       </div>
 
-      {/* <RecommendedBooks />
-      <PortalModal active={modalOpen} setActive={setModalOpen}>
-        <ModalAddBookSuccessfully closeModals={() => setModalOpen()} />
-      </PortalModal> */}
+      <RecommendedBooks />
+      <CustomPortalModal active={modalOpen} setActive={setModalOpen}>
+        <SuccessfulBookAdditionModal closeModals={() => setModalOpen()} />
+      </CustomPortalModal>
     </DashboardWrapper>
   );
 }

@@ -7,6 +7,8 @@ import { ownBooks } from 'redux/books/booksOperations';
 import { selectOwnBooks } from 'redux/books/booksSelectors';
 import { BookList, LibraryContainer, LibraryHeading } from './Books.styled';
 import MenuDropdown from 'components/MenuDropdown/MenuDropdown';
+import NoBooksScreen from 'components/NoBooksScreen/NoBooksScreen';
+import BookItem from 'components/BookItem/BookItem';
 
 export default function Books() {
   const [modalOpen, setModalOpen] = useState(false);
@@ -39,11 +41,11 @@ export default function Books() {
       </LibraryContainer>
 
       {userLibrary.length === 0 ? (
-        <EmptyScreen purpose="UserLibraryBooks" />
+        <NoBooksScreen purpose="UserLibraryBooks" />
       ) : (
         <BookList>
           {userLibrary.map(book => (
-            <BookCard
+            <BookItem
               key={book._id}
               book={book}
               openBookModal={openBookModal}

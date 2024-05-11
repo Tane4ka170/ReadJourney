@@ -8,6 +8,8 @@ import { ToastContainer } from 'react-toastify';
 import { useAuth } from 'hooks/useAuth';
 import Loader from './Loader/Loader';
 import Layout from './Layout/Layout';
+import { AuthRoute } from 'hoc/AuthRoute';
+import { PrivateRoute } from 'hoc/PrivateRoute';
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -30,19 +32,13 @@ export const App = () => {
           <Route
             path="/register"
             element={
-              <RestrictedRoute
-                redirectTo="/recommended"
-                component={<Register />}
-              />
+              <AuthRoute redirectTo="/recommended" component={<Register />} />
             }
           />
           <Route
             path="/login"
             element={
-              <RestrictedRoute
-                redirectTo="/recommended"
-                component={<Login />}
-              />
+              <AuthRoute redirectTo="/recommended" component={<Login />} />
             }
           />
           <Route

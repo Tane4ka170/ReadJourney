@@ -10,6 +10,7 @@ import Loader from './Loader/Loader';
 import Layout from './Layout/Layout';
 import { AuthRoute } from 'hoc/AuthRoute';
 import { PrivateRoute } from 'hoc/PrivateRoute';
+import RegisterPage from 'pages/RegisterPage';
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -32,7 +33,10 @@ export const App = () => {
           <Route
             path="/register"
             element={
-              <AuthRoute redirectTo="/recommended" component={<Register />} />
+              <AuthRoute
+                redirectTo="/recommended"
+                component={<RegisterPage />}
+              />
             }
           />
           <Route

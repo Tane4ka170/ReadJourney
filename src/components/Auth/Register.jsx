@@ -6,6 +6,18 @@ import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { register } from 'redux/auth/authOperations';
 import { toast } from 'react-toastify';
+import {
+  Container,
+  ErrorFeedback,
+  FeedbackMessage,
+  FieldContainer,
+  FormContainer,
+  FormGroup,
+  Icon,
+  Label,
+  StyledField,
+} from './Auth.styled';
+import HeaderLogoTitle from 'components/HeaderLogoTitle/HeaderLogoTitle.styled';
 
 const initialValues = {
   name: '',
@@ -49,9 +61,9 @@ export default function Register() {
   };
 
   return (
-    <div>
+    <Container>
       <div>
-        <LogoTitleBlock />
+        <HeaderLogoTitle />
         <Formik
           initialValues={initialValues}
           validationSchema={schema}
@@ -59,11 +71,11 @@ export default function Register() {
         >
           {({ errors, touched }) => (
             <Form>
-              <div>
-                <div>
-                  <div>
-                    <label htmlFor="name">Name:</label>
-                    <Field
+              <FormContainer>
+                <FormGroup>
+                  <FieldContainer>
+                    <Label htmlFor="name">Name:</Label>
+                    <StyledField
                       id="name"
                       name="name"
                       type="name"
@@ -81,23 +93,23 @@ export default function Register() {
                     />
                     {touched.name &&
                       (errors.name ? (
-                        <svg width={20} height={20}>
+                        <Icon width={20} height={20}>
                           <use href={`${sprite}#icon-pajamas_error`} />
-                        </svg>
+                        </Icon>
                       ) : (
-                        <svg width={20} height={20}>
+                        <Icon width={20} height={20}>
                           <use href={`${sprite}#icon-check-ok`} />
-                        </svg>
+                        </Icon>
                       ))}
                     {touched.name && !errors.name && (
-                      <p>Name is secure</p>
+                      <FeedbackMessage>Name is secure</FeedbackMessage>
                     )}
-                    <ErrorMessage name="name" component="div" />
-                  </div>
+                    <ErrorFeedback name="name" component="div" />
+                  </FieldContainer>
 
-                  <div>
-                    <label htmlFor="email">Mail:</label>
-                    <Field
+                  <FieldContainer>
+                    <Label htmlFor="email">Mail:</Label>
+                    <StyledField
                       id="email"
                       name="email"
                       type="email"
@@ -115,25 +127,23 @@ export default function Register() {
                     />
                     {touched.email &&
                       (errors.email ? (
-                        <svg width={20} height={20}>
+                        <Icon width={20} height={20}>
                           <use href={`${sprite}#icon-pajamas_error`} />
-                        </svg>
+                        </Icon>
                       ) : (
-                        <svg width={20} height={20}>
+                        <Icon width={20} height={20}>
                           <use href={`${sprite}#icon-check-ok`} />
-                        </svg>
+                        </Icon>
                       ))}
                     {touched.email && !errors.email && (
-                      <p>Email is secure</p>
+                      <FeedbackMessage>Email is secure</FeedbackMessage>
                     )}
-                    <ErrorMessage name="email" component="div" />
-                  </div>
+                    <ErrorFeedback name="email" component="div" />
+                  </FieldContainer>
 
-                  <div>
-                    <label htmlFor="password">
-                      Password:
-                    </label>
-                    <Field
+                  <FieldContainer>
+                    <Label htmlFor="password">Password:</Label>
+                    <StyledField
                       id="password"
                       name="password"
                       type={showPassword ? 'text' : 'password'}
@@ -150,15 +160,15 @@ export default function Register() {
                     />
 
                     {errors.password && touched.password ? (
-                      <svg width={20} height={20}>
+                      <Icon width={20} height={20}>
                         <use href={`${sprite}#icon-pajamas_error`} />
-                      </svg>
+                      </Icon>
                     ) : !errors.password && touched.password ? (
-                      <svg width={20} height={20}>
+                      <Icon width={20} height={20}>
                         <use href={`${sprite}#icon-check-ok`} />
-                      </svg>
+                      </Icon>
                     ) : showPassword ? (
-                      <svg
+                      <Icon
                         width={20}
                         height={20}
                         onMouseDown={e => {
@@ -167,7 +177,7 @@ export default function Register() {
                         }}
                       >
                         <use href={`${sprite}#icon-eye`} />
-                      </svg>
+                      </Icon>
                     ) : (
                       <svg
                         width={20}
@@ -182,19 +192,19 @@ export default function Register() {
                     )}
 
                     {touched.password && !errors.password && (
-                      <p>Password is secure</p>
+                      <FeedbackMessage>Password is secure</FeedbackMessage>
                     )}
-                    <ErrorMessage name="password" component="div" />
-                  </div>
-                </div>
+                    <ErrorFeedback name="password" component="div" />
+                  </FieldContainer>
+                </FormGroup>
 
                 <SubmitBlockRegister />
-              </div>
+              </FormContainer>
             </Form>
           )}
         </Formik>
       </div>
       <ImgAutorization />
-    </в>
+    </Container>
   );
 }

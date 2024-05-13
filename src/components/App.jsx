@@ -60,13 +60,13 @@ export const App = () => {
             path="/library"
             element={<PrivateRoute redirectTo="/library" component={<Lib />} />}
           />
-          <Route
+          {/* <Route
             path="/reading/:bookId"
             element={
               <PrivateRoute redirectTo="/library" component={<Reading />} />
             }
           />
-          <Route path="*" element={<NotFoundPage />} />
+          <Route path="*" element={<NotFoundPage />} /> */}
         </Route>
       </Routes>
       <ToastContainer autoClose={1500} />

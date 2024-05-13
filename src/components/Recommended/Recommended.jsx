@@ -8,6 +8,9 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchBooks } from 'redux/books/booksOperations';
 import { selectBookData, selectTotalPage } from 'redux/books/booksSelectors';
+import { ListContainer, SectionContainer } from './Recommended.styled';
+import { LibraryHeading } from 'components/Books/Books.styled';
+import RecomendedDashboard from 'components/RecommendedDashboard/RecommendedDashboard';
 
 const calculateLimit = width => {
   if (width < 768) {
@@ -62,16 +65,16 @@ export default function Recommended() {
       <RecomendedDashboard />
 
       <GeneralMainWrapper>
-        <div>
-          <h1>Recommended</h1>
-          <Pagination
+        <SectionContainer>
+          <LibraryHeading>Recommended</LibraryHeading>
+          {/* <Pagination
             totalPages={totalPages}
             handlePageChange={handlePageChange}
             page={page}
-          />
-        </div>
+          /> */}
+        </SectionContainer>
 
-        <ul>
+        <ListContainer>
           {results?.map(book => (
             <BookItem
               key={book._id}
@@ -79,7 +82,7 @@ export default function Recommended() {
               openLoginModal={openLoginModal}
             />
           ))}
-        </ul>
+        </ListContainer>
         {!results.length && <NoBooksScreen purt="Recomended" />}
       </GeneralMainWrapper>
 

@@ -11,6 +11,7 @@ import Layout from './Layout/Layout';
 import { AuthRoute } from 'hoc/AuthRoute';
 import { PrivateRoute } from 'hoc/PrivateRoute';
 import RegisterPage from 'pages/RegisterPage';
+import LoginPage from 'pages/LoginPage';
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -42,7 +43,7 @@ export const App = () => {
           <Route
             path="/login"
             element={
-              <AuthRoute redirectTo="/recommended" component={<Login />} />
+              <AuthRoute redirectTo="/recommended" component={<LoginPage />} />
             }
           />
           <Route

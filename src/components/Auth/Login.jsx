@@ -1,10 +1,9 @@
-import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import sprite from '../../img/sprite.svg';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
-import { register } from 'redux/auth/authOperations';
+import { Form, useNavigate } from 'react-router-dom';
+import { logIn } from 'redux/auth/authOperations';
 import { toast } from 'react-toastify';
 import {
   Container,
@@ -12,26 +11,23 @@ import {
   FeedbackMessage,
   FieldContainer,
   FormBlock,
-  FormContainer,
   FormGroup,
   Icon,
   Label,
   StyledField,
 } from './Auth.styled';
-import HeaderLogoTitle from 'components/HeaderLogoTitle/HeaderLogoTitle.styled';
-import RegistrationSubmissionBlock from 'components/AuthorizationSubmissionBlock/RegistrationSubmissionBlock';
+import HeaderLogoTitle from 'components/HeaderLogoTitle/HeaderLogoTitle';
+import { Formik } from 'formik';
+import { FormContainer } from 'components/Dashboard/Dashboard.styled';
+import LoginSubmissionBlock from 'components/AuthorizationSubmissionBlock/LoginSubmissionBlock';
 import AuthorizationImage from 'components/AuthorizationImage/AuthorizationImage';
 
 const initialValues = {
-  name: '',
   email: '',
   password: '',
 };
 
 const schema = Yup.object({
-  name: Yup.string()
-    .required('Required')
-    .min(2, 'The name must have at least 2 letters'),
   email: Yup.string()
     .matches(/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/, 'Invalid email address')
     .required('Required'),
@@ -40,7 +36,7 @@ const schema = Yup.object({
     .min(7, 'Password must be at least 7 characters'),
 });
 
-export default function Register() {
+export default function Login() {
   const [showPassword, setShowPassword] = useState(false);
 
   const dispatch = useDispatch();
@@ -52,14 +48,10 @@ export default function Register() {
 
   const handleSubmit = async values => {
     try {
-      await dispatch(register(values)).unwrap();
+      await dispatch(logIn(values)).unwrap();
       navigate('/recommended');
     } catch (error) {
-      if (error === 'Request failed with status code 409') {
-        toast.error('A user with this email address already exists');
-      } else {
-        toast.error('Registration was unsuccessful. Please try again later.');
-      }
+      toast.error('Please verify the email and password');
     }
   };
 
@@ -67,6 +59,7 @@ export default function Register() {
     <Container>
       <FormBlock>
         <HeaderLogoTitle />
+
         <Formik
           initialValues={initialValues}
           validationSchema={schema}
@@ -76,40 +69,6 @@ export default function Register() {
             <Form>
               <FormContainer>
                 <FormGroup>
-                  <FieldContainer>
-                    <Label htmlFor="name">Name:</Label>
-                    <StyledField
-                      id="name"
-                      name="name"
-                      type="name"
-                      placeholder="Nik Ovson"
-                      error={errors.name && touched.name ? 'true' : 'false'}
-                      paddingleft="65px"
-                      style={{
-                        borderColor:
-                          touched.name && errors.name
-                            ? 'red'
-                            : touched.name && !errors.name
-                            ? 'green'
-                            : 'defaultColor',
-                      }}
-                    />
-                    {touched.name &&
-                      (errors.name ? (
-                        <Icon width={20} height={20}>
-                          <use href={`${sprite}#icon-pajamas_error`} />
-                        </Icon>
-                      ) : (
-                        <Icon width={20} height={20}>
-                          <use href={`${sprite}#icon-check-ok`} />
-                        </Icon>
-                      ))}
-                    {touched.name && !errors.name && (
-                      <FeedbackMessage>Name is secure</FeedbackMessage>
-                    )}
-                    <ErrorFeedback name="name" component="div" />
-                  </FieldContainer>
-
                   <FieldContainer>
                     <Label htmlFor="email">Mail:</Label>
                     <StyledField
@@ -151,6 +110,9 @@ export default function Register() {
                       name="password"
                       type={showPassword ? 'text' : 'password'}
                       placeholder="********"
+                      error={
+                        errors.password && touched.password ? 'true' : 'false'
+                      }
                       paddingleft="86px"
                       style={{
                         borderColor:
@@ -182,7 +144,7 @@ export default function Register() {
                         <use href={`${sprite}#icon-eye`} />
                       </Icon>
                     ) : (
-                      <svg
+                      <Icon
                         width={20}
                         height={20}
                         onMouseDown={e => {
@@ -191,7 +153,7 @@ export default function Register() {
                         }}
                       >
                         <use href={`${sprite}#icon-eye-off`} />
-                      </svg>
+                      </Icon>
                     )}
 
                     {touched.password && !errors.password && (
@@ -201,12 +163,13 @@ export default function Register() {
                   </FieldContainer>
                 </FormGroup>
 
-                <RegistrationSubmissionBlock />
+                <LoginSubmissionBlock />
               </FormContainer>
             </Form>
           )}
         </Formik>
       </FormBlock>
+
       <AuthorizationImage />
     </Container>
   );

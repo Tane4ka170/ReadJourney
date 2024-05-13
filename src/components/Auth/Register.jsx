@@ -18,6 +18,8 @@ import {
   StyledField,
 } from './Auth.styled';
 import HeaderLogoTitle from 'components/HeaderLogoTitle/HeaderLogoTitle.styled';
+import RegistrationSubmissionBlock from 'components/AuthorizationSubmissionBlock/RegistrationSubmissionBlock';
+import AuthorizationImage from 'components/AuthorizationImage/AuthorizationImage';
 
 const initialValues = {
   name: '',
@@ -198,13 +200,13 @@ export default function Register() {
                   </FieldContainer>
                 </FormGroup>
 
-                <SubmitBlockRegister />
+                <RegistrationSubmissionBlock />
               </FormContainer>
             </Form>
           )}
         </Formik>
       </div>
-      <ImgAutorization />
+      <AuthorizationImage />
     </Container>
   );
 }

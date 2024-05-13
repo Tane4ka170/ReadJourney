@@ -12,6 +12,7 @@ import { AuthRoute } from 'hoc/AuthRoute';
 import { PrivateRoute } from 'hoc/PrivateRoute';
 import RegisterPage from 'pages/RegisterPage';
 import LoginPage from 'pages/LoginPage';
+import RecomendedPage from 'pages/RecomendedPage';
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -51,7 +52,7 @@ export const App = () => {
             element={
               <PrivateRoute
                 redirectTo="/recommended"
-                component={<Recommended />}
+                component={<RecomendedPage />}
               />
             }
           />

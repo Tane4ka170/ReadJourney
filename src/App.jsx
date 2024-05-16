@@ -3,16 +3,17 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import { refreshUser } from 'redux/auth/authOperations';
 import { selectToken } from 'redux/auth/authSelectors';
-import Lib from './Lib/Lib';
+import Lib from './components/Lib/Lib';
 import { ToastContainer } from 'react-toastify';
 import { useAuth } from 'hooks/useAuth';
-import Loader from './Loader/Loader';
-import Layout from './Layout/Layout';
+import Loader from './components/Loader/Loader';
+import Layout from './components/Layout/Layout';
 import { AuthRoute } from 'hoc/AuthRoute';
 import { PrivateRoute } from 'hoc/PrivateRoute';
 import RegisterPage from 'pages/RegisterPage';
 import LoginPage from 'pages/LoginPage';
 import RecomendedPage from 'pages/RecomendedPage';
+import ReadingPage from 'pages/ReadingPage';
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -60,13 +61,13 @@ export const App = () => {
             path="/library"
             element={<PrivateRoute redirectTo="/library" component={<Lib />} />}
           />
-          {/* <Route
+          <Route
             path="/reading/:bookId"
             element={
-              <PrivateRoute redirectTo="/library" component={<Reading />} />
+              <PrivateRoute redirectTo="/library" component={<ReadingPage />} />
             }
           />
-          <Route path="*" element={<NotFoundPage />} /> */}
+          {/* <Route path="*" element={<NotFoundPage />} /> */}
         </Route>
       </Routes>
       <ToastContainer autoClose={1500} />

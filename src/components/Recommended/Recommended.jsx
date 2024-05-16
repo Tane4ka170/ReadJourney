@@ -11,6 +11,7 @@ import { selectBookData, selectTotalPage } from 'redux/books/booksSelectors';
 import { ListContainer, SectionContainer } from './Recommended.styled';
 import { LibraryHeading } from 'components/Books/Books.styled';
 import RecomendedDashboard from 'components/RecommendedDashboard/RecommendedDashboard';
+import Pagination from 'components/Pagination/Pagination';
 
 const calculateLimit = width => {
   if (width < 768) {
@@ -67,11 +68,11 @@ export default function Recommended() {
       <GeneralMainWrapper>
         <SectionContainer>
           <LibraryHeading>Recommended</LibraryHeading>
-          {/* <Pagination
+          <Pagination
             totalPages={totalPages}
             handlePageChange={handlePageChange}
             page={page}
-          /> */}
+          />
         </SectionContainer>
 
         <ListContainer>

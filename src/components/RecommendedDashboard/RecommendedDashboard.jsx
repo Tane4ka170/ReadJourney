@@ -18,6 +18,7 @@ import {
   Label,
 } from 'components/Dashboard/Dashboard.styled';
 import StartWorkout from 'components/StartWorkout/StartWorkout';
+import Remark from 'components/Remark/Remark';
 
 const initialValues = {
   title: '',
@@ -95,7 +96,7 @@ export default function RecomendedDashboard() {
       </StyledFormContainer>
 
       <StartWorkout />
-      {/* <Quote /> */}
+      <Remark />
     </DashboardWrapper>
   );
 }

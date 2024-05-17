@@ -4,8 +4,8 @@ import { Form, Formik } from 'formik';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
-import { addNewBook, ownBooks } from 'redux/books/booksOperations';
-import { selectOwnBooks } from 'redux/books/booksSelectors';
+import { addNewBook, ownBooks } from '../../redux/books/booksOperations';
+import { selectOwnBooks } from '../../redux/books/booksSelectors';
 import * as Yup from 'yup';
 import {
   FieldContainer,

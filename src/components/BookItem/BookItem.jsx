@@ -1,7 +1,7 @@
 import sprite from '../../img/sprite.svg';
 import notFoundImg from '../../img/notFoundImg/open-book-desct.jpg';
 import { useDispatch } from 'react-redux';
-import { deleteBook } from 'redux/books/booksOperations';
+import { deleteBook } from '../../redux/books/booksOperations';
 import AlternativeImage from 'components/AlternativeImage/AlternativeImage';
 import {
   Author,

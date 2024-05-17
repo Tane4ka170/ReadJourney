@@ -4,17 +4,16 @@ import likeDesktop from '../../img/stackBooksAndLike/like-desc.png';
 import likeMobile2x from '../../img/stackBooksAndLike/like-mob@2x.png';
 import likeMobile from '../../img/stackBooksAndLike/like-mob.png';
 import {
-  CloseButton,
   Heading,
   Img,
   LibraryName,
-  StyledModal,
   SuccessMessage,
 } from 'components/BookDetails/BookDetails.styled';
+import { CloseButton, ModalContainer } from './ModalBookRead.styled';
 
 export default function SuccessfulBookAdditionModal({ closeModals }) {
   return (
-    <StyledModal>
+    <ModalContainer>
       <CloseButton onClick={closeModals}>
         <svg width={22} height={22}>
           <use href={`${sprite}#icon-x`} />
@@ -36,6 +35,6 @@ export default function SuccessfulBookAdditionModal({ closeModals }) {
         Your book is now in <LibraryName>the library!</LibraryName> The joy
         knows no bounds and now you can start your training
       </Heading>
-    </StyledModal>
+    </ModalContainer>
   );
 }

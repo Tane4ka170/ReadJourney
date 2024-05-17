@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchBooks } from 'redux/books/booksOperations';
-import { selectBookData } from 'redux/books/booksSelectors';
+import { fetchBooks } from '../../redux/books/booksOperations';
+import { selectBookData } from '../../redux/books/booksSelectors';
 import sprite from '../../img/sprite.svg';
 import {
   ArrowIcon,

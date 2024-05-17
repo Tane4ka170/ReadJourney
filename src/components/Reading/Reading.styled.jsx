@@ -1,4 +1,4 @@
-import { colors } from 'react-select/dist/declarations/src/theme';
+import color from 'global/GlobalColors';
 import styled from 'styled-components';
 
 export const ReadingTitle = styled.h1`
@@ -54,7 +54,7 @@ export const BookTitle = styled.h2`
 
 export const BookAuthor = styled.p`
   font-size: 10px;
-  color: ${colors.gryeLight};
+  color: ${color.gryeLight};
   margin-bottom: 20px;
 
   @media (min-width: 768px) {

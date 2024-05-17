@@ -6,8 +6,11 @@ import GeneralMainWrapper from 'components/GeneralMainWrapper/GeneralMainWrapper
 import NoBooksScreen from 'components/NoBooksScreen/NoBooksScreen';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchBooks } from 'redux/books/booksOperations';
-import { selectBookData, selectTotalPage } from 'redux/books/booksSelectors';
+import { fetchBooks } from '../../redux/books/booksOperations';
+import {
+  selectBookData,
+  selectTotalPage,
+} from '../../redux/books/booksSelectors';
 import { ListContainer, SectionContainer } from './Recommended.styled';
 import { LibraryHeading } from 'components/Books/Books.styled';
 import RecomendedDashboard from 'components/RecommendedDashboard/RecommendedDashboard';

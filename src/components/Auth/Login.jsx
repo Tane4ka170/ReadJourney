@@ -3,7 +3,7 @@ import sprite from '../../img/sprite.svg';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { Form, useNavigate } from 'react-router-dom';
-import { logIn } from 'redux/auth/authOperations';
+import { logIn } from '../../redux/auth/authOperations';
 import { toast } from 'react-toastify';
 import {
   Container,

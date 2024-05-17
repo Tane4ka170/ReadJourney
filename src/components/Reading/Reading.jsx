@@ -4,7 +4,7 @@ import GeneralMainWrapper from 'components/GeneralMainWrapper/GeneralMainWrapper
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import { selectOwnBooks } from 'redux/books/booksSelectors';
+import { selectOwnBooks } from '../../redux/books/booksSelectors';
 import notFoundImg from '../../img/notFoundImg/open-book-desct.jpg';
 import sprite from '../../img/sprite.svg';
 import {
@@ -15,6 +15,7 @@ import {
   ReadingIcon,
   ReadingTitle,
 } from './Reading.styled';
+import ReadingPanel from 'components/ReadingPanel/ReadingPanel';
 
 export default function Reading() {
   const { bookId } = useParams();
@@ -25,10 +26,10 @@ export default function Reading() {
 
   return (
     <Block>
-      {/* <ReadingDashboard
+      <ReadingPanel
         selectedBook={selectedBook._id}
         onReadChange={e => setRead(!e)}
-      /> */}
+      />
 
       <GeneralMainWrapper>
         <ReadingTitle>My reading</ReadingTitle>

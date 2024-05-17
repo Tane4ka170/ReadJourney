@@ -1,8 +1,8 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Navigate, Route, Routes } from 'react-router-dom';
-import { refreshUser } from 'redux/auth/authOperations';
-import { selectToken } from 'redux/auth/authSelectors';
+import { refreshUser } from './redux/auth/authOperations';
+import { selectToken } from './redux/auth/authSelectors';
 import Lib from './components/Lib/Lib';
 import { ToastContainer } from 'react-toastify';
 import { useAuth } from 'hooks/useAuth';

@@ -2,8 +2,8 @@ import CustomPortalModal from 'components/CustomPortalModal/CustomPortalModal';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
-import { logOut } from 'redux/auth/authOperations';
-import { selectUser } from 'redux/auth/authSelectors';
+import { logOut } from '../../redux/auth/authOperations';
+import { selectUser } from '../../redux/auth/authSelectors';
 import sprite from '../../img/sprite.svg';
 import { toast } from 'react-toastify';
 import {

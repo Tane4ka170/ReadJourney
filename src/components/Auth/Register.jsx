@@ -4,7 +4,7 @@ import sprite from '../../img/sprite.svg';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { register } from 'redux/auth/authOperations';
+import { register } from '../../redux/auth/authOperations';
 import { toast } from 'react-toastify';
 import {
   Container,
@@ -18,9 +18,9 @@ import {
   Label,
   StyledField,
 } from './Auth.styled';
-import HeaderLogoTitle from 'components/HeaderLogoTitle/HeaderLogoTitle.styled';
 import RegistrationSubmissionBlock from 'components/AuthorizationSubmissionBlock/RegistrationSubmissionBlock';
 import AuthorizationImage from 'components/AuthorizationImage/AuthorizationImage';
+import HeaderLogoTitle from 'components/HeaderLogoTitle/HeaderLogoTitle';
 
 const initialValues = {
   name: '',

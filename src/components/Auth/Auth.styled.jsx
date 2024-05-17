@@ -36,7 +36,7 @@ export const FormBlock = styled.div`
   }
 `;
 
-export const FormConteiner = styled.div`
+export const FormContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 8px;

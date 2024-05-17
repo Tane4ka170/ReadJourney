@@ -1,11 +1,15 @@
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { CloseButton, toast } from 'react-toastify';
-import { logOut } from 'redux/auth/authOperations';
+import { toast } from 'react-toastify';
+import { logOut } from '../../redux/auth/authOperations';
 import sprite from '../../img/sprite.svg';
 import { NavigationLink } from 'components/Header/Header.styled';
 import Btn from 'components/Btn/Btn';
-import { LinksContainer, MenuContainer } from './SideNavigation.styled';
+import {
+  CloseButton,
+  LinksContainer,
+  MenuContainer,
+} from './SideNavigation.styled';
 
 export default function SideNavigation({ isOpen, onClose }) {
   const dispatch = useDispatch();

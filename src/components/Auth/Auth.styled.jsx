@@ -39,21 +39,21 @@ export const FormBlock = styled.div`
 export const FormContainer = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  justify-content: space-between;
+  height: 210px;
 
   @media (min-width: 768px) {
-    gap: 14px;
+    height: 308px;
   }
 `;
 
 export const FormGroup = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  height: 210px;
+  gap: 8px;
 
   @media (min-width: 768px) {
-    height: 308px;
+    gap: 14px;
   }
 `;
 

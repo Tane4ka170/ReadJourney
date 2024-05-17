@@ -2,7 +2,7 @@ import * as Yup from 'yup';
 import sprite from '../../img/sprite.svg';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { Form, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { logIn } from '../../redux/auth/authOperations';
 import { toast } from 'react-toastify';
 import {
@@ -17,7 +17,7 @@ import {
   StyledField,
 } from './Auth.styled';
 import HeaderLogoTitle from 'components/HeaderLogoTitle/HeaderLogoTitle';
-import { Formik } from 'formik';
+import { Formik, Form } from 'formik';
 import { FormContainer } from 'components/Dashboard/Dashboard.styled';
 import LoginSubmissionBlock from 'components/AuthorizationSubmissionBlock/LoginSubmissionBlock';
 import AuthorizationImage from 'components/AuthorizationImage/AuthorizationImage';
@@ -162,7 +162,6 @@ export default function Login() {
                     <ErrorFeedback name="password" component="div" />
                   </FieldContainer>
                 </FormGroup>
-
                 <LoginSubmissionBlock />
               </FormContainer>
             </Form>

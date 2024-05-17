@@ -79,15 +79,18 @@ export default function Recommended() {
         </SectionContainer>
 
         <ListContainer>
-          {results?.map(book => (
-            <BookItem
-              key={book._id}
-              book={book}
-              openLoginModal={openLoginModal}
-            />
-          ))}
+          {results && results.length > 0 ? (
+            results.map(book => (
+              <BookItem
+                key={book._id}
+                book={book}
+                openLoginModal={openLoginModal}
+              />
+            ))
+          ) : (
+            <NoBooksScreen purt="Recomended" />
+          )}
         </ListContainer>
-        {!results.length && <NoBooksScreen purt="Recomended" />}
       </GeneralMainWrapper>
 
       <CustomPortalModal active={modalOpen} setActive={setModalOpen}>

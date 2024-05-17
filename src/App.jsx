@@ -52,22 +52,21 @@ export const App = () => {
             path="/recommended"
             element={
               <PrivateRoute
-                redirectTo="/recommended"
+                redirectTo="/login"
                 component={<RecomendedPage />}
               />
             }
           />
           <Route
             path="/library"
-            element={<PrivateRoute redirectTo="/library" component={<Lib />} />}
+            element={<PrivateRoute redirectTo="/login" component={<Lib />} />}
           />
           <Route
             path="/reading/:bookId"
             element={
-              <PrivateRoute redirectTo="/library" component={<ReadingPage />} />
+              <PrivateRoute redirectTo="/login" component={<ReadingPage />} />
             }
           />
-          {/* <Route path="*" element={<NotFoundPage />} /> */}
         </Route>
       </Routes>
       <ToastContainer autoClose={1500} />

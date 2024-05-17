@@ -1,14 +1,5 @@
 import color from 'global/GlobalColors';
-import styled, { keyframes } from 'styled-components';
-
-const growAnimation = keyframes`
-  from {
-    transform: scale(1);
-  }
-  to {
-    transform: scale(1.1);
-  }
-`;
+import styled from 'styled-components';
 
 export const StyledBtn = styled.button`
   font-size: 14px;
@@ -19,13 +10,12 @@ export const StyledBtn = styled.button`
   border: 1px solid ${color.whiteLightTranslucent};
   border-radius: 30px;
   background: transparent;
-  transition: all 0.3s;
+  transition: color 0.3s linear, background 0.3s linear;
 
   &:hover,
   &:focus {
     color: ${color.blackLight};
     background: ${color.whitePrimary};
-    animation: ${growAnimation} 0.3s forwards;
   }
 
   @media (min-width: 768px) {

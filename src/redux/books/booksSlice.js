@@ -38,7 +38,6 @@ const bookSlice = createSlice({
         state.loading = false;
         state.error = action.error.message;
       })
-
       .addCase(addNewBook.pending, state => {
         state.loading = true;
         state.error = null;
@@ -51,7 +50,6 @@ const bookSlice = createSlice({
         state.loading = false;
         state.error = action.error.message;
       })
-
       .addCase(addBookById.pending, state => {
         state.loading = true;
         state.error = null;
@@ -64,7 +62,6 @@ const bookSlice = createSlice({
         state.loading = false;
         state.error = action.error.message;
       })
-
       .addCase(ownBooks.pending, state => {
         state.loading = true;
         state.error = null;
@@ -77,7 +74,6 @@ const bookSlice = createSlice({
         state.loading = false;
         state.error = action.error.message;
       })
-
       .addCase(deleteBook.pending, state => {
         state.loading = true;
         state.error = null;
@@ -92,7 +88,6 @@ const bookSlice = createSlice({
         state.loading = false;
         state.error = action.error.message;
       })
-
       .addCase(readingStart.pending, state => {
         state.loading = true;
         state.error = null;
@@ -105,7 +100,6 @@ const bookSlice = createSlice({
         state.loading = false;
         state.error = action.error.message;
       })
-
       .addCase(readingStop.pending, state => {
         state.loading = true;
         state.error = null;
@@ -118,7 +112,6 @@ const bookSlice = createSlice({
         state.loading = false;
         state.error = action.error.message;
       })
-
       .addCase(readingDell.pending, state => {
         state.loading = true;
         state.error = null;
@@ -131,7 +124,6 @@ const bookSlice = createSlice({
         state.loading = false;
         state.error = action.error.message;
       })
-
       .addCase(bookReadingInf.pending, state => {
         state.loading = true;
         state.error = null;

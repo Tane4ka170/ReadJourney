@@ -182,7 +182,7 @@ export default function Register() {
                         <use href={`${sprite}#icon-eye`} />
                       </Icon>
                     ) : (
-                      <svg
+                      <Icon
                         width={20}
                         height={20}
                         onMouseDown={e => {
@@ -191,7 +191,7 @@ export default function Register() {
                         }}
                       >
                         <use href={`${sprite}#icon-eye-off`} />
-                      </svg>
+                      </Icon>
                     )}
 
                     {touched.password && !errors.password && (
@@ -201,7 +201,9 @@ export default function Register() {
                   </FieldContainer>
                 </FormGroup>
 
-                <RegistrationSubmissionBlock />
+                <div style={{ marginTop: 'auto' }}>
+                  <RegistrationSubmissionBlock />
+                </div>
               </FormContainer>
             </Form>
           )}

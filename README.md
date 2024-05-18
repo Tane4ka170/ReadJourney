@@ -27,7 +27,7 @@ featuring a page number input and reading statistics.
 - Redux
 - React Router
 - Axios
-- Formic
+- Formik
 - Styled Components
 
 #### Getting Started

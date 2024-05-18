@@ -7,16 +7,14 @@ import { toast } from 'react-toastify';
 import { fetchBooks } from '../../redux/books/booksOperations';
 import * as Yup from 'yup';
 import {
-  StyledButtonContainer,
-  StyledFiltersTitle,
-  StyledFormContainer,
-} from './RecommendedDashboard.styled';
-import {
   FieldContainer,
   FormContainer,
   InputField,
   Label,
-} from 'components/Dashboard/Dashboard.styled';
+  StyledButtonContainer,
+  StyledFiltersTitle,
+  StyledFormContainer,
+} from './RecommendedDashboard.styled';
 import StartWorkout from 'components/StartWorkout/StartWorkout';
 import Remark from 'components/Remark/Remark';
 

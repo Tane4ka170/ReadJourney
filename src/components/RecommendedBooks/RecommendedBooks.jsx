@@ -19,18 +19,18 @@ import CustomPortalModal from 'components/CustomPortalModal/CustomPortalModal';
 import BookDetails from 'components/BookDetails/BookDetails';
 
 const RecommendedBooks = () => {
-  const [modalOpen, setModalOpen] = useState(false);
-  const [bookInfo, setBookInfo] = useState(false);
-  const booksData = useSelector(selectBookData);
+  const [openModal, setOpenModal] = useState(false);
+  const [bookData, setBookData] = useState(false);
+  const results = useSelector(selectBookData);
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(fetchBooks({ page: 1, limit: 10 }));
   }, [dispatch]);
 
-  const openModalHandler = book => {
-    setModalOpen(true);
-    setBookInfo(book);
+  const openLoginModal = book => {
+    setOpenModal(true);
+    setBookData(book);
   };
 
   return (
@@ -38,12 +38,12 @@ const RecommendedBooks = () => {
       <RecommendedBooksContainer>
         <RecommendedBooksHeading>Recommended books</RecommendedBooksHeading>
         <BooksList>
-          {booksData?.slice(3, 6).map(book => (
+          {results?.slice(3, 6).map(book => (
             <BookListItem key={book._id}>
               <BookImage
                 src={book.imageUrl}
-                alt="book title"
-                onClick={() => openModalHandler(book)}
+                alt={book.title}
+                onClick={() => openLoginModal(book)}
               />
               <BookTitle>{book.title}</BookTitle>
               <BookAuthor>{book.author}</BookAuthor>
@@ -58,11 +58,11 @@ const RecommendedBooks = () => {
         </HomeLink>
       </RecommendedBooksContainer>
 
-      <CustomPortalModal active={modalOpen} setActive={setModalOpen}>
+      <CustomPortalModal active={openModal} setActive={setOpenModal}>
         <BookDetails
-          bookInfo={bookInfo}
-          closeModal={() => setModalOpen()}
-          buttonLabel="Add to library"
+          bookData={bookData}
+          closeModals={() => setOpenModal()}
+          btnLabel="Add to library"
         />
       </CustomPortalModal>
     </div>

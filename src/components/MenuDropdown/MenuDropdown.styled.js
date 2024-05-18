@@ -1,5 +1,5 @@
-import color from 'global/GlobalColors';
 import styled from 'styled-components';
+import color from 'global/GlobalColors';
 
 export const DropdownContainer = styled.div`
   position: relative;
@@ -14,6 +14,7 @@ export const ChevronIcon = styled.svg`
 
 export const ToggleButton = styled.button`
   display: flex;
+  align-items: center;
   width: 120px;
   height: 40px;
   border-radius: 12px;
@@ -40,12 +41,9 @@ export const OptionList = styled.ul`
   color: ${color.gryeLight};
   background-color: ${color.gryeBlack};
   border-top: none;
-  display: none;
-
   list-style: none;
   padding: 14px;
   margin: 0;
-
   width: 100%;
   border-radius: 12px;
   display: ${props => (props.open ? 'block' : 'none')};

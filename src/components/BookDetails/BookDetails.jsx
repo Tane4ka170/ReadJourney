@@ -10,17 +10,14 @@ import Btn from 'components/Btn/Btn';
 import AlternativeImage from 'components/AlternativeImage/AlternativeImage';
 import {
   AuthorInfo,
+  CloseButton,
   CoverImage,
   PageCount,
   StyledModal,
   Title,
 } from './BookDetails.styled';
 
-export default function BookDetails({
-  closeModal,
-  bookData,
-  actionButtonLabel,
-}) {
+export default function BookDetails({ closeModals, bookData, btnLabel }) {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const ownLibrary = useSelector(selectOwnBooks);
@@ -29,9 +26,10 @@ export default function BookDetails({
     dispatch(ownBooks());
   }, [dispatch]);
 
-  const handleActionButtonClick = () => {
-    if (actionButtonLabel === 'Add to Library') {
+  const handleButtonClick = () => {
+    if (btnLabel === 'Add to library') {
       const bookExists = ownLibrary.find(item => item.title === bookData.title);
+
       if (!bookExists) {
         toast.success('The addition of the book was successful');
         dispatch(addBookById(bookData._id));
@@ -40,20 +38,22 @@ export default function BookDetails({
       }
     }
 
-    if (actionButtonLabel === 'Start Reading') {
-      navigate(`/reading/${bookData._id}`);
-    }
+    if (btnLabel === 'Start reading') navigate(`/reading/${bookData._id}`);
 
-    closeModal();
+    closeModals();
   };
+
+  if (!bookData) {
+    return null;
+  }
 
   return (
     <StyledModal>
-      <button onClick={closeModal}>
+      <CloseButton onClick={closeModals}>
         <svg width={22} height={22}>
           <use href={`${sprite}#icon-x`} />
         </svg>
-      </button>
+      </CloseButton>
 
       {bookData.imageUrl ? (
         <CoverImage src={bookData.imageUrl} alt="cover" />
@@ -67,11 +67,7 @@ export default function BookDetails({
       <AuthorInfo>{bookData.author}</AuthorInfo>
       <PageCount>{bookData.totalPages} pages</PageCount>
 
-      <Btn
-        label={actionButtonLabel}
-        onClick={handleActionButtonClick}
-        prop="true"
-      />
+      <Btn label={btnLabel} onClick={handleButtonClick} prop="true" />
     </StyledModal>
   );
 }

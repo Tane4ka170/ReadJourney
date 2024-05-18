@@ -3,7 +3,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import { toast } from 'react-toastify';
 
 export const fetchBooks = createAsyncThunk(
-  '/books/recommend',
+  'books/fetchBooks',
   async ({ page = 1, limit = 10, title = '', author = '' }, thunkAPI) => {
     try {
       const response = await axios.get(
@@ -17,7 +17,7 @@ export const fetchBooks = createAsyncThunk(
 );
 
 export const addNewBook = createAsyncThunk(
-  '/books/addNew',
+  'books/addNew',
   async (data, thunkAPI) => {
     try {
       const response = await axios.post(`/books/add`, data);
@@ -29,7 +29,7 @@ export const addNewBook = createAsyncThunk(
 );
 
 export const addBookById = createAsyncThunk(
-  '/books/add',
+  'books/add',
   async (id, thunkAPI) => {
     try {
       const response = await axios.post(`/books/add/${id}`);
@@ -41,7 +41,7 @@ export const addBookById = createAsyncThunk(
 );
 
 export const deleteBook = createAsyncThunk(
-  '/books/remove',
+  'books/remove',
   async (id, thunkAPI) => {
     try {
       const response = await axios.delete(`/books/remove/${id}`);
@@ -53,7 +53,7 @@ export const deleteBook = createAsyncThunk(
 );
 
 export const ownBooks = createAsyncThunk(
-  '/books/own',
+  'books/own',
   async (status = '', thunkAPI) => {
     try {
       const url = status ? `/books/own?status=${status}` : '/books/own';
@@ -66,7 +66,7 @@ export const ownBooks = createAsyncThunk(
 );
 
 export const readingStart = createAsyncThunk(
-  '/books/reading/start',
+  'books/reading/start',
   async (data, thunkAPI) => {
     try {
       const response = await axios.post(`/books/reading/start`, data);
@@ -79,7 +79,7 @@ export const readingStart = createAsyncThunk(
 );
 
 export const readingStop = createAsyncThunk(
-  '/books/reading/finish',
+  'books/reading/finish',
   async (data, thunkAPI) => {
     try {
       const response = await axios.post(`/books/reading/finish`, data);
@@ -92,7 +92,7 @@ export const readingStop = createAsyncThunk(
 );
 
 export const readingDell = createAsyncThunk(
-  '/books/reading',
+  'books/reading',
   async (data, thunkAPI) => {
     try {
       const response = await axios.delete(
@@ -109,7 +109,7 @@ export const readingDell = createAsyncThunk(
 );
 
 export const bookReadingInf = createAsyncThunk(
-  '/books/id',
+  'books/id',
   async (id, thunkAPI) => {
     try {
       const response = await axios.get(`/books/${id}`);

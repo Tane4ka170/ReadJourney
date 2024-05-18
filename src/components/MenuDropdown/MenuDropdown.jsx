@@ -17,32 +17,40 @@ export default function MenuDropdown({
   setIsOpen,
 }) {
   const selectRef = useRef(null);
+
   useEffect(() => {
     const handleClickOutside = event => {
       if (selectRef.current && !selectRef.current.contains(event.target)) {
         setIsOpen(false);
       }
     };
-    document.addEventListener('click', handleClickOutside);
+    document.addEventListener('mousedown', handleClickOutside);
     return () => {
-      document.removeEventListener('click', handleClickOutside);
+      document.removeEventListener('mousedown', handleClickOutside);
     };
   }, [setIsOpen]);
-  const toggleDropdown = () => setIsOpen(!isOpen);
+
+  const toggleDropdown = event => {
+    event.stopPropagation();
+    setIsOpen(!isOpen);
+  };
+
+  const handleOptionClick = book => {
+    handleSelectedBooks(book);
+    setIsOpen(false);
+  };
 
   return (
-    <DropdownContainer onClick={toggleDropdown} ref={selectRef}>
-      <ChevronIcon width={16} height={16}>
-        <use href={`${sprite}#icon-chevron-${isOpen ? 'upp' : 'down'}`} />
-      </ChevronIcon>
-      <ToggleButton>{selectedBooks || 'All books'}</ToggleButton>
+    <DropdownContainer ref={selectRef}>
+      <ToggleButton onClick={toggleDropdown}>
+        {selectedBooks || 'All books'}
+        <ChevronIcon width={16} height={16}>
+          <use href={`${sprite}#icon-chevron-${isOpen ? 'upp' : 'down'}`} />
+        </ChevronIcon>
+      </ToggleButton>
       <OptionList open={isOpen}>
         {options.map(book => (
-          <OptionItem
-            key={book}
-            value={book}
-            onClick={() => handleSelectedBooks(book)}
-          >
+          <OptionItem key={book} onClick={() => handleOptionClick(book)}>
             {book}
           </OptionItem>
         ))}

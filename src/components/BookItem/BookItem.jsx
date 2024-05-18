@@ -5,13 +5,13 @@ import { deleteBook } from '../../redux/books/booksOperations';
 import AlternativeImage from 'components/AlternativeImage/AlternativeImage';
 import {
   Author,
+  BookDetails,
   BookImage,
   DeleteButton,
   DetailsContainer,
   ListItem,
   Title,
 } from './BookItem.styled';
-import BookDetails from 'components/BookDetails/BookDetails';
 
 export default function BookItem({
   book,

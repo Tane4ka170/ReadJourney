@@ -12,22 +12,27 @@ import BookItem from 'components/BookItem/BookItem';
 
 export default function Books() {
   const [modalOpen, setModalOpen] = useState(false);
-  const [bookData, setBookData] = useState(null);
-  const [selectedCategory, setSelectedCategory] = useState('All');
-  const userLibrary = useSelector(selectOwnBooks);
+  const [bookData, setBookData] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+  const ownLibrary = useSelector(selectOwnBooks);
+  const [selectedBooks, setSelectedBooks] = useState('');
+
   const dispatch = useDispatch();
-
   useEffect(() => {
-    dispatch(ownBooks(selectedCategory));
-  }, [dispatch, selectedCategory]);
+    dispatch(ownBooks());
+  }, [dispatch]);
 
-  const openBookModal = book => {
+  const openLoginModal = book => {
     setModalOpen(true);
     setBookData(book);
   };
 
-  const handleSelectedCategory = category => {
-    setSelectedCategory(category);
+  const handleSelectedBooks = e => {
+    setSelectedBooks(e);
+    if (e === 'Done') dispatch(ownBooks('done'));
+    if (e === 'In progress') dispatch(ownBooks('in-progress'));
+    if (e === 'All books') dispatch(ownBooks());
+    if (e === 'Unread') dispatch(ownBooks('unread'));
   };
 
   return (
@@ -35,31 +40,34 @@ export default function Books() {
       <LibraryContainer>
         <LibraryHeading>My library</LibraryHeading>
         <MenuDropdown
-          selectedCategory={selectedCategory}
-          handleSelectedCategory={handleSelectedCategory}
+          selectedBooks={selectedBooks}
+          handleSelectedBooks={handleSelectedBooks}
+          isOpen={isOpen}
+          setIsOpen={setIsOpen}
         />
       </LibraryContainer>
 
-      {userLibrary.length === 0 ? (
-        <NoBooksScreen purpose="UserLibraryBooks" />
+      {ownLibrary.length === 0 ? (
+        <NoBooksScreen purt="MyLibraryBooks" />
       ) : (
         <BookList>
-          {userLibrary.map(book => (
-            <BookItem
-              key={book._id}
-              book={book}
-              openBookModal={openBookModal}
-              currentPage="MyLibrary"
-            />
-          ))}
+          {Array.isArray(ownLibrary) &&
+            ownLibrary.map(book => (
+              <BookItem
+                key={book._id}
+                book={book}
+                openLoginModal={openLoginModal}
+                currentPage="MyLibrary"
+              />
+            ))}
         </BookList>
       )}
 
       <CustomPortalModal active={modalOpen} setActive={setModalOpen}>
         <BookDetails
           bookData={bookData}
-          closeModals={() => setModalOpen(false)}
-          btnLabel="Start Reading"
+          closeModals={() => setModalOpen()}
+          btnLabel="Start reading"
         />
       </CustomPortalModal>
     </GeneralMainWrapper>

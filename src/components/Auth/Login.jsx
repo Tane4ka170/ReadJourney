@@ -1,3 +1,4 @@
+import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
 import sprite from '../../img/sprite.svg';
 import { useState } from 'react';
@@ -15,10 +16,9 @@ import {
   Icon,
   Label,
   StyledField,
+  FormContainer,
 } from './Auth.styled';
 import HeaderLogoTitle from 'components/HeaderLogoTitle/HeaderLogoTitle';
-import { Formik, Form } from 'formik';
-import { FormContainer } from 'components/Dashboard/Dashboard.styled';
 import LoginSubmissionBlock from 'components/AuthorizationSubmissionBlock/LoginSubmissionBlock';
 import AuthorizationImage from 'components/AuthorizationImage/AuthorizationImage';
 

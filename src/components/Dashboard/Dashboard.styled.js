@@ -16,13 +16,10 @@ export const FormContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  gap: 8px;
-  width: 100%;
-  max-width: 295px;
-  margin-bottom: 20px;
+  height: 210px;
 
-  @media (min-width: 1440px) {
-    max-width: 313px;
+  @media (min-width: 768px) {
+    height: 308px;
   }
 `;
 

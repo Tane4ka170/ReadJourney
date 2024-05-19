@@ -75,3 +75,16 @@ export const ReadingIcon = styled.svg`
     height: 50px;
   }
 `;
+
+export const ReadingInfo = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`;
+
+export const TimeLeft = styled.p`
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.24px;
+  color: ${color.gryeLight};
+`;

@@ -4,7 +4,10 @@ import GeneralMainWrapper from 'components/GeneralMainWrapper/GeneralMainWrapper
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import { selectOwnBooks } from '../../redux/books/booksSelectors';
+import {
+  selectInfoCurrentBook,
+  selectOwnBooks,
+} from '../../redux/books/booksSelectors';
 import notFoundImg from '../../img/notFoundImg/open-book-desct.jpg';
 import sprite from '../../img/sprite.svg';
 import {
@@ -13,7 +16,9 @@ import {
   BookImage,
   BookTitle,
   ReadingIcon,
+  ReadingInfo,
   ReadingTitle,
+  TimeLeft,
 } from './Reading.styled';
 import ReadingPanel from 'components/ReadingPanel/ReadingPanel';
 
@@ -21,26 +26,29 @@ export default function Reading() {
   const { bookId } = useParams();
   const books = useSelector(selectOwnBooks);
   const [read, setRead] = useState(false);
+  const selectCurrentBookInfo = useSelector(selectInfoCurrentBook);
 
   const selectedBook = books.find(book => book._id === bookId);
 
   return (
     <Block>
       <ReadingPanel
-        selectedBook={selectedBook?._id}
+        selectedBook={selectedBook._id}
         onReadChange={() => setRead(!read)}
       />
 
       <GeneralMainWrapper>
-        <ReadingTitle>My reading</ReadingTitle>
-        {selectedBook && selectedBook.timeLeftToRead && (
-          <p>
-            {selectedBook.timeLeftToRead.hours} hours and{' '}
-            {selectedBook.timeLeftToRead.minutes} minutes left
-          </p>
-        )}
+        <ReadingInfo>
+          <ReadingTitle>My reading</ReadingTitle>
+          {selectCurrentBookInfo.timeLeftToRead && (
+            <TimeLeft>
+              {selectCurrentBookInfo.timeLeftToRead.hours} hours and{' '}
+              {selectCurrentBookInfo.timeLeftToRead.minutes} minutes left
+            </TimeLeft>
+          )}
+        </ReadingInfo>
         <BookContainer>
-          {selectedBook?.imageUrl ? (
+          {selectedBook.imageUrl ? (
             <BookImage src={selectedBook.imageUrl} alt="title" />
           ) : (
             <AlternativeImage>

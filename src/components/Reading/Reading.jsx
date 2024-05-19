@@ -27,14 +27,20 @@ export default function Reading() {
   return (
     <Block>
       <ReadingPanel
-        selectedBook={selectedBook._id}
-        onReadChange={e => setRead(!e)}
+        selectedBook={selectedBook?._id}
+        onReadChange={() => setRead(!read)}
       />
 
       <GeneralMainWrapper>
         <ReadingTitle>My reading</ReadingTitle>
+        {selectedBook && selectedBook.timeLeftToRead && (
+          <p>
+            {selectedBook.timeLeftToRead.hours} hours and{' '}
+            {selectedBook.timeLeftToRead.minutes} minutes left
+          </p>
+        )}
         <BookContainer>
-          {selectedBook.imageUrl ? (
+          {selectedBook?.imageUrl ? (
             <BookImage src={selectedBook.imageUrl} alt="title" />
           ) : (
             <AlternativeImage>

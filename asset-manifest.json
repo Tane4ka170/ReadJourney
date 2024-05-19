@@ -1,12 +1,12 @@
 {
   "files": {
     "main.css": "/ReadJourney/static/css/main.75322f90.css",
-    "main.js": "/ReadJourney/static/js/main.b4711a7c.js",
+    "main.js": "/ReadJourney/static/js/main.20aa9ca2.js",
     "static/js/736.6208bebc.chunk.js": "/ReadJourney/static/js/736.6208bebc.chunk.js",
     "static/js/339.ca3d71d0.chunk.js": "/ReadJourney/static/js/339.ca3d71d0.chunk.js",
-    "static/js/669.55ee45a9.chunk.js": "/ReadJourney/static/js/669.55ee45a9.chunk.js",
-    "static/js/347.5ef974f8.chunk.js": "/ReadJourney/static/js/347.5ef974f8.chunk.js",
-    "static/js/602.91e07f87.chunk.js": "/ReadJourney/static/js/602.91e07f87.chunk.js",
+    "static/js/669.105daae2.chunk.js": "/ReadJourney/static/js/669.105daae2.chunk.js",
+    "static/js/347.6ec270fc.chunk.js": "/ReadJourney/static/js/347.6ec270fc.chunk.js",
+    "static/js/602.f84d4ae5.chunk.js": "/ReadJourney/static/js/602.f84d4ae5.chunk.js",
     "static/js/306.4dcc0dd7.chunk.js": "/ReadJourney/static/js/306.4dcc0dd7.chunk.js",
     "static/js/491.addbc30d.chunk.js": "/ReadJourney/static/js/491.addbc30d.chunk.js",
     "static/media/desctop-block@2x.jpg": "/ReadJourney/static/media/desctop-block@2x.b6383e21ca50a16f7d2b.jpg",
@@ -22,17 +22,17 @@
     "static/media/mob-block.jpg": "/ReadJourney/static/media/mob-block.5d988c5ea2cfe97b143a.jpg",
     "index.html": "/ReadJourney/index.html",
     "main.75322f90.css.map": "/ReadJourney/static/css/main.75322f90.css.map",
-    "main.b4711a7c.js.map": "/ReadJourney/static/js/main.b4711a7c.js.map",
+    "main.20aa9ca2.js.map": "/ReadJourney/static/js/main.20aa9ca2.js.map",
     "736.6208bebc.chunk.js.map": "/ReadJourney/static/js/736.6208bebc.chunk.js.map",
     "339.ca3d71d0.chunk.js.map": "/ReadJourney/static/js/339.ca3d71d0.chunk.js.map",
-    "669.55ee45a9.chunk.js.map": "/ReadJourney/static/js/669.55ee45a9.chunk.js.map",
-    "347.5ef974f8.chunk.js.map": "/ReadJourney/static/js/347.5ef974f8.chunk.js.map",
-    "602.91e07f87.chunk.js.map": "/ReadJourney/static/js/602.91e07f87.chunk.js.map",
+    "669.105daae2.chunk.js.map": "/ReadJourney/static/js/669.105daae2.chunk.js.map",
+    "347.6ec270fc.chunk.js.map": "/ReadJourney/static/js/347.6ec270fc.chunk.js.map",
+    "602.f84d4ae5.chunk.js.map": "/ReadJourney/static/js/602.f84d4ae5.chunk.js.map",
     "306.4dcc0dd7.chunk.js.map": "/ReadJourney/static/js/306.4dcc0dd7.chunk.js.map",
     "491.addbc30d.chunk.js.map": "/ReadJourney/static/js/491.addbc30d.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.75322f90.css",
-    "static/js/main.b4711a7c.js"
+    "static/js/main.20aa9ca2.js"
   ]
 }

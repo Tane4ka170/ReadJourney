@@ -1,7 +1,7 @@
 import Btn from 'components/Btn/Btn';
 import CustomPortalModal from 'components/CustomPortalModal/CustomPortalModal';
 import DashboardWrapper from 'components/DashboardWrapper/DashboardWrapper';
-import { ErrorMessage, Field, Form, Formik } from 'formik';
+import { ErrorMessage, Form, Formik } from 'formik';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
@@ -132,7 +132,7 @@ export default function ReadingPanel({ selectedBook, onReadChange }) {
         onReadChange(read);
       }
     }
-    e.target.blur();
+    document.getElementById('page').blur();
   };
 
   return (

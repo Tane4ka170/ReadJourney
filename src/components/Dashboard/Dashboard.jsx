@@ -62,7 +62,7 @@ export default function Dashboard() {
         toast.error('The book is already in the library');
       }
     }
-    e.target.blur();
+    document.getElementById('page').blur();
   };
 
   return (

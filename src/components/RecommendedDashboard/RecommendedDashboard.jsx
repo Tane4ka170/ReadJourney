@@ -41,7 +41,7 @@ export default function RecomendedDashboard() {
     } else {
       toast.warn('Kindly complete the form');
     }
-    e.target.blur();
+    document.getElementById('page').blur();
   };
 
   const handleReset = resetForm => {

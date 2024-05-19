@@ -14,7 +14,7 @@ import {
   selectReadBook,
 } from '../../redux/books/booksSelectors';
 import * as Yup from 'yup';
-import { Forma } from './ReadingPanel.styled';
+import { FormField, Forma } from './ReadingPanel.styled';
 import {
   FieldContainer,
   FormContainer,
@@ -149,7 +149,7 @@ export default function ReadingPanel({ selectedBook, onReadChange }) {
               <FormContainer>
                 <FieldContainer>
                   <Label htmlFor="page">Pages number:</Label>
-                  <Field
+                  <FormField
                     id="page"
                     name="page"
                     type="page"
